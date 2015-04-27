@@ -1,0 +1,23 @@
+<head>
+	<title>bug-app</title>
+</head>
+
+<body>
+	{{> hello}}
+</body>
+
+<template name="hello">
+Open console and try to change date repeatedly
+<ul>
+{{#each items}}
+	{{>updateForm}}
+{{/each}}
+</ul>
+</template>
+
+<template name="updateForm">
+	{{#autoForm id="updateForm" collection="Nodes" type="update" doc=this autosave=true}}
+		{{> afQuickField name="title"}}
+		{{> afQuickField name="date" type="bootstrap-datepicker"}}
+	{{/autoForm}}
+</template>
